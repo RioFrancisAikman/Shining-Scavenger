@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     public float rotationSpeed;
-    public float jumpForce = 8f;
+    public float jumpForce;
 
     public Rigidbody rb;
     private bool isGrounded;
@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveSpeed = 5f;
+        rotationSpeed = 500f;
+        jumpForce = 8f;
     }
 
     // Update is called once per frame
