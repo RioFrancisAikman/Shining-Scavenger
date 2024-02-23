@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody rb;
     private bool isGrounded;
+    public EnergyProjectile energyProjectile;
 
     // Start is called before the first frame update
     void Start()
