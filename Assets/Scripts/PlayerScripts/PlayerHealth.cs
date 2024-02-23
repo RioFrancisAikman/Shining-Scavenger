@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
@@ -46,6 +46,27 @@ public class PlayerStats : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
+            //myAnimator.SetBool("Attacked", true);
+
+            if (hitTimer <= 2.5f)
+            {
+                TakeDamage(0); // Invulnerable to taking damage briefly
+            }
+
+            if (hitTimer >= 2.5f)
+            {
+                TakeDamage(1); // Player takes damage
+                //healthBar.SetHealth(currentHealth);
+                Debug.Log("Ouch!");
+                hitTimer = 0;
+            }   
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
         {
             //myAnimator.SetBool("Attacked", true);
 
