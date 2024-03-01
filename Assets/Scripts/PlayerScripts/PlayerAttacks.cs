@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-   public int attackPower;
+   public float attackPower;
+   public float hammerPower;
+   public float energyPower;
    public GameObject MeleeHitBox;
    public GameObject RangedHitBox;
    public float attackTimer;
+   public bool hammerNow;
+   public bool energyNow;
 
    public PlayerEnergyObjectPool playerEnergyObjectPool;
    
     // Start is called before the first frame update
     void Start()
     {
-        attackPower = 2;
+        hammerPower = 2;
+        energyPower = 2;
         attackTimer = 1.4f;
     }
 
@@ -23,11 +28,24 @@ public class PlayerAttacks : MonoBehaviour
     {
         HammerAttack();
         EnergyAttack();
+        
+        if (hammerNow == true)
+        {
+            attackPower = hammerPower;
+        }
+        
+
+        if (energyNow == true)
+        {
+            attackPower = energyPower;
+        }
 
         attackTimer += Time.deltaTime;
         if(attackTimer >= 1.0f) // Melee attack Duration
         {
             MeleeHitBox.SetActive(false);
+            hammerNow = false;
+            energyNow = false;
         }
     }
 
@@ -38,6 +56,7 @@ public class PlayerAttacks : MonoBehaviour
             MeleeHitBox.SetActive(true); // Activates hit box to deal damage
             Debug.Log("Pow!");
             attackTimer = 0;
+            hammerNow = true;
         }
     }
 
@@ -48,6 +67,8 @@ public class PlayerAttacks : MonoBehaviour
             RangedHitBox.SetActive(true); // Activates hit box to deal damage
             Debug.Log("Swoosh!");
             attackTimer = 0;
+
+            energyNow = true;
 
             GameObject EnergyBlast = playerEnergyObjectPool.GetEnergyBlast();
             EnergyBlast.SetActive(true);

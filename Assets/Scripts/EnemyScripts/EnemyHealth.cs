@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxEnemyHealth;
+    public float maxEnemyHealth;
     public bool isSmallEnemy;
     public bool isBigEnemy;
     public float hitTimer;
