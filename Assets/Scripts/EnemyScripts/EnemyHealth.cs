@@ -5,29 +5,35 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxEnemyHealth;
-    public bool isenemySmall;
+    public bool isSmallEnemy;
     public bool isBigEnemy;
     public float hitTimer;
+    public int pointValue;
 
     public PlayerAttacks playerAttacks;
-   // public EnemyChase enemyChase;
+    public PlayerPoints playerPoints;
+    public EnemyChase enemyChase;
+    
 
     //public GameObject enemyMon;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (isenemySmall)
+        if (isSmallEnemy)
         {
             maxEnemyHealth = 4;
+            pointValue = 1;
         }
 
         if (isBigEnemy)
         {
             maxEnemyHealth = 6;
+            pointValue = 2;
         }
 
         playerAttacks = FindObjectOfType<PlayerAttacks>();
+        playerPoints = FindObjectOfType<PlayerPoints>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,18 @@ public class EnemyHealth : MonoBehaviour
         if (maxEnemyHealth <= 0)
         {
             Destroy(gameObject);
+
+            if (pointValue == 1)
+            {
+                playerPoints.CollectedPoint(1);
+                Debug.Log("+1");
+            }
+
+            if (pointValue == 2)
+            {
+               playerPoints.CollectedPoint(2);
+                Debug.Log("+2");
+            }
         }
 
         if (hitTimer <= 1.4f)
@@ -53,7 +71,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "HitBox")
         {
-           // enemyChase.enemySpeed = 0;
+           enemyChase.enemySpeed = 0;
             
             if (hitTimer <= 1.2f)
             {
@@ -68,6 +86,14 @@ public class EnemyHealth : MonoBehaviour
                 hitTimer = 0;
             }   
             
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "HitBox")
+        {
+           enemyChase.enemySpeed = 2;
         }
     }
 }
