@@ -22,21 +22,19 @@ public class PowerUpgrades : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* 
-        if (playerPoints.upgradeNow == true)
-        {
-            powUp1 = true;
-
-            playerPoints.upgradePoints -= playerPoints.upgradeReset;
-            playerPoints.upgradeNow = false;
-        }
-        */
         if (powUp1 == true)
         {
             playerMovement.moveSpeed += 1.5f;
             playerAttacks.hammerPower += 1f;
 
             powUp1 = false;
+        }
+
+        if (powUp2 == true)
+        {
+            playerAttacks.energyPower += 1.5f;
+
+            powUp2 = false;
         }
         
     }

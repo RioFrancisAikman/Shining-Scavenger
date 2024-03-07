@@ -8,13 +8,15 @@ public class PlayerPoints : MonoBehaviour
     public int upgradeReset;
     public bool upgradeNow;
 
-    public PowUpButton powUpButtonA;
+    public GameObject powUpButton1;
+    public GameObject powUpButton2;
+    public GameObject upgradeTitle;
 
     // Start is called before the first frame update
     void Start()
     {
         upgradeReset = 10;
-        powUpButtonA = FindObjectOfType<PowUpButton>();
+        
     }
 
     // Update is called once per frame
@@ -22,11 +24,15 @@ public class PlayerPoints : MonoBehaviour
     {
         if (upgradeNow == false)
         {
-            powUpButtonA.powUpButton.gameObject.SetActive(false);
+            powUpButton1.gameObject.SetActive(false);
+            powUpButton2.gameObject.SetActive(false);
+            upgradeTitle.gameObject.SetActive(false);
         }
         else if (upgradeNow == true)
         {
-            powUpButtonA.powUpButton.gameObject.SetActive(true);
+            powUpButton1.gameObject.SetActive(true);
+            powUpButton2.gameObject.SetActive(true);
+            upgradeTitle.gameObject.SetActive(true);
         }
     }
 
@@ -37,6 +43,7 @@ public class PlayerPoints : MonoBehaviour
         {
             Debug.Log("UpgradeTime");
             upgradeNow = true;
+            Time.timeScale = 0;
         }
     }
 }

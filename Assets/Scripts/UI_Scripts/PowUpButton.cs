@@ -19,12 +19,6 @@ public class PowUpButton : MonoBehaviour
         powerUpgrades = FindObjectOfType<PowerUpgrades>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ClickPowUp()
     {
         if(isPowUp1 == true)
@@ -38,9 +32,21 @@ public class PowUpButton : MonoBehaviour
             }
         }
       
+        if(isPowUp2 == true)
+        {
+            if (playerPoints.upgradeNow == true)
+            {
+                powerUpgrades.powUp2 = true;
+
+                playerPoints.upgradePoints -= playerPoints.upgradeReset;
+                playerPoints.upgradeNow = false;
+            }
+        }
+      
         if (powUpButton != null)
         {
             powUpButton.gameObject.SetActive(false);
         }
+        Time.timeScale = 1;
     }
 }
