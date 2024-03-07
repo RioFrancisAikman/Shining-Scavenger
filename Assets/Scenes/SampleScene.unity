@@ -403,7 +403,9 @@ MonoBehaviour:
   isSmallEnemy: 1
   isBigEnemy: 0
   hitTimer: 0
+  pointValue: 0
   playerAttacks: {fileID: 1698147167}
+  playerPoints: {fileID: 1698147175}
   enemyChase: {fileID: 528948311}
 --- !u!114 &528948311
 MonoBehaviour:
@@ -670,7 +672,9 @@ MonoBehaviour:
   isSmallEnemy: 0
   isBigEnemy: 1
   hitTimer: 0
+  pointValue: 0
   playerAttacks: {fileID: 1698147167}
+  playerPoints: {fileID: 1698147175}
   enemyChase: {fileID: 1070744487}
 --- !u!135 &1070744482
 SphereCollider:
@@ -784,7 +788,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070744480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9015d4e440acee489cf595367ae3167, type: 3}
   m_Name: 
@@ -914,6 +918,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65c8909c939b3243935311836b58879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1698147171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 880451504563151279, guid: 030c2b7255f0d2e4ea7358475630795f, type: 3}
+  m_PrefabInstance: {fileID: 3260986749278590876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698147159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fefffeb7cc7c3f45bc18ffd3a9c1856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1698147175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698147159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f630f88c559a201449bd5bb5152e7fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePoints: 9
+  upgradeReset: 0
+  upgradeNow: 0
+--- !u!114 &1698147176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698147159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d19170b080638a479a2dc85e10285e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powUp1: 0
+  powUp2: 0
+  playerMovement: {fileID: 1698147171}
+  playerAttacks: {fileID: 1698147167}
+  playerPoints: {fileID: 1698147175}
 --- !u!1 &1850451473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1121,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 782177438896139338, guid: 030c2b7255f0d2e4ea7358475630795f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1698147175}
+    - targetCorrespondingSourceObject: {fileID: 782177438896139338, guid: 030c2b7255f0d2e4ea7358475630795f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1698147176}
   m_SourcePrefab: {fileID: 100100000, guid: 030c2b7255f0d2e4ea7358475630795f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
