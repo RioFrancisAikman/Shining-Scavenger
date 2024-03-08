@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public float hitTimer;
 
+    public GameFinishedScript gameFinishedScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +28,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth > 0)
        {
-            //gameOverScript.SetEndScreen(gameOverNow);
-            //gameOverNow = false;
+            gameFinishedScript.gameOverNow = false;
        }
        else if (currentHealth <= 0)
        {
-            //gameOverScript.SetEndScreen(gameOverNow);
-            //gameOverNow = true;
+            
+            gameFinishedScript.gameOverNow = true;
             Debug.Log("Game Over");
             Time.timeScale = 0;
        }
