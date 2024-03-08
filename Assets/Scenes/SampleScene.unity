@@ -1509,8 +1509,10 @@ MonoBehaviour:
   playerPoints: {fileID: 1698147175}
   digit: 0
   spawnUpgrade: 0
+  upgradeTimer: 0
   powUpButton1: {fileID: 2071391336}
   powUpButton2: {fileID: 864384089}
+  upgradeTitle: {fileID: 657056720}
 --- !u!1 &1698147159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 782177438896139338, guid: 030c2b7255f0d2e4ea7358475630795f, type: 3}

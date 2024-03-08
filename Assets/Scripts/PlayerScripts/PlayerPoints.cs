@@ -27,13 +27,13 @@ public class PlayerPoints : MonoBehaviour
         {
             //powUpButton1.gameObject.SetActive(false);
             //powUpButton2.gameObject.SetActive(false);
-            upgradeTitle.gameObject.SetActive(false);
+            //upgradeTitle.gameObject.SetActive(false);
         }
         else if (upgradeNow == true)
         {
             //powUpButton1.gameObject.SetActive(true);
             //powUpButton2.gameObject.SetActive(true);
-            upgradeTitle.gameObject.SetActive(true);
+            //upgradeTitle.gameObject.SetActive(true);
         }
     }
 

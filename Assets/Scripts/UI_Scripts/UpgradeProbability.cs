@@ -12,11 +12,13 @@ public class UpgradeProbability : MonoBehaviour
 
     public GameObject powUpButton1;
     public GameObject powUpButton2;
+    public GameObject upgradeTitle;
     
     // Start is called before the first frame update
     void Start()
     {
         playerPoints = FindObjectOfType<PlayerPoints>();
+        upgradeTimer = 0.5f;
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class UpgradeProbability : MonoBehaviour
         {
             digit = Random.Range(0, 100);
             upgradeTimer = 0;
+            upgradeTitle.gameObject.SetActive(true);
             
         }
 
@@ -54,7 +57,7 @@ public class UpgradeProbability : MonoBehaviour
             {
                 powUpButton1.gameObject.SetActive(false);
                 powUpButton2.gameObject.SetActive(false);
-                
+                upgradeTitle.gameObject.SetActive(false);
             }
         }
     }
