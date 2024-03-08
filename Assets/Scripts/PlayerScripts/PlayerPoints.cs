@@ -16,7 +16,8 @@ public class PlayerPoints : MonoBehaviour
     void Start()
     {
         upgradeReset = 10;
-        
+        powUpButton1.gameObject.SetActive(false);
+        powUpButton2.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,14 +25,14 @@ public class PlayerPoints : MonoBehaviour
     {
         if (upgradeNow == false)
         {
-            powUpButton1.gameObject.SetActive(false);
-            powUpButton2.gameObject.SetActive(false);
+            //powUpButton1.gameObject.SetActive(false);
+            //powUpButton2.gameObject.SetActive(false);
             upgradeTitle.gameObject.SetActive(false);
         }
         else if (upgradeNow == true)
         {
-            powUpButton1.gameObject.SetActive(true);
-            powUpButton2.gameObject.SetActive(true);
+            //powUpButton1.gameObject.SetActive(true);
+            //powUpButton2.gameObject.SetActive(true);
             upgradeTitle.gameObject.SetActive(true);
         }
     }

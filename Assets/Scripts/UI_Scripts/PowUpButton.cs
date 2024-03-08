@@ -23,24 +23,22 @@ public class PowUpButton : MonoBehaviour
     {
         if(isPowUp1 == true)
         {
-            if (playerPoints.upgradeNow == true)
-            {
-                powerUpgrades.powUp1 = true;
+           
+            powerUpgrades.powUp1 = true;
 
-                playerPoints.upgradePoints -= playerPoints.upgradeReset;
-                playerPoints.upgradeNow = false;
-            }
+            playerPoints.upgradePoints -= playerPoints.upgradeReset;
+            playerPoints.upgradeNow = false;
+            
         }
       
         if(isPowUp2 == true)
         {
-            if (playerPoints.upgradeNow == true)
-            {
-                powerUpgrades.powUp2 = true;
+            
+            powerUpgrades.powUp2 = true;
 
-                playerPoints.upgradePoints -= playerPoints.upgradeReset;
-                playerPoints.upgradeNow = false;
-            }
+            playerPoints.upgradePoints -= playerPoints.upgradeReset;
+            playerPoints.upgradeNow = false;
+            
         }
       
         if (powUpButton != null)
