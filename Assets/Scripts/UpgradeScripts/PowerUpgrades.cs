@@ -14,7 +14,7 @@ public class PowerUpgrades : MonoBehaviour
     public PlayerAttacks playerAttacks;
     public PlayerHealth playerHealth;
     public PlayerPoints playerPoints;
-    public EnergyProjectile energyProjectile;
+    public HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +43,16 @@ public class PowerUpgrades : MonoBehaviour
             if (playerHealth.maxHealth <= 11)
             {
                 playerHealth.maxHealth += 2; // Boost max health
+                healthBar.SetMaxHealth(playerHealth.maxHealth);
             }
             if (playerHealth.maxHealth >= 12)
             {
                 playerHealth.currentHealth += 2; // Boost current health when max is 12
+                healthBar.SetHealth(playerHealth.currentHealth);
+                HealthCounter.instance.IncreaseHealth(playerHealth.currentHealth);
             }
-            
+
+            healthBar.SetHealth(playerHealth.currentHealth);
 
             powUp2 = false;
         }
@@ -58,11 +62,15 @@ public class PowerUpgrades : MonoBehaviour
             if (playerHealth.maxHealth <= 11)
             {
                 playerHealth.maxHealth += 3; // Boost max health
+                healthBar.SetMaxHealth(playerHealth.maxHealth);
             }
             if (playerHealth.maxHealth >= 12)
             {
                 playerHealth.currentHealth += 3; // Boost current health when max is 12
-            }    
+                healthBar.SetHealth(playerHealth.currentHealth);
+                HealthCounter.instance.IncreaseHealth(playerHealth.currentHealth);
+            }
+            healthBar.SetHealth(playerHealth.currentHealth);
 
             powUp3 = false;
         }
@@ -72,6 +80,9 @@ public class PowerUpgrades : MonoBehaviour
             playerAttacks.energyPower += 1f;
             playerMovement.moveSpeed += 1f;
             playerHealth.currentHealth += 1;
+
+            healthBar.SetHealth(playerHealth.currentHealth);
+            HealthCounter.instance.IncreaseHealth(playerHealth.currentHealth);
 
             powUp4 = false;
         }
@@ -92,7 +103,16 @@ public class PowerUpgrades : MonoBehaviour
             playerMovement.moveSpeed = 9; // speed won't go over 9
         }
 
-        if(playerHealth.regenHealth == true && playerAttacks.energyNow == true) //&& energyProjectile.enemyHit == true)
+        if (playerAttacks.hammerPower >= 6)
+        {
+            playerAttacks.hammerPower = 6; // hammer power won't go over 6
+        }
+        if (playerAttacks.energyPower >= 5)
+        {
+            playerAttacks.energyPower = 5; // enrgy power won't go over 5
+        }
+
+        if (playerHealth.regenHealth == true && playerAttacks.energyNow == true) //&& energyProjectile.enemyHit == true)
         {
             playerHealth.currentHealth += playerAttacks.energyPower * 0.5f; // boost health based on half of attack power
             playerAttacks.energyNow = false;

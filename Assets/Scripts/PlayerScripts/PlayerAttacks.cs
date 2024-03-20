@@ -12,8 +12,9 @@ public class PlayerAttacks : MonoBehaviour
    public float attackTimer;
    public bool hammerNow;
    public bool energyNow;
+    public bool enemyHit;
 
-   public PlayerEnergyObjectPool playerEnergyObjectPool;
+    public PlayerEnergyObjectPool playerEnergyObjectPool;
    
     // Start is called before the first frame update
     void Start()

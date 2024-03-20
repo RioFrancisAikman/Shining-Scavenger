@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
 
     public PlayerAttacks playerAttacks;
     public PlayerPoints playerPoints;
+    public PointsCounter pointsCounter;
     public EnemyChase enemyChase;
     
 
@@ -46,13 +47,15 @@ public class EnemyHealth : MonoBehaviour
             if (pointValue == 1)
             {
                 playerPoints.CollectedPoint(1);
+                PointsCounter.instance.IncreasePoints(pointValue);
                 Debug.Log("+1");
             }
 
             if (pointValue == 2)
             {
                playerPoints.CollectedPoint(2);
-                Debug.Log("+2");
+               PointsCounter.instance.IncreasePoints(pointValue);
+               Debug.Log("+2");
             }
         }
 

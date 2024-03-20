@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float hitTimer;
     public bool regenHealth;
 
+    public HealthBar healthBar;
     public GameFinishedScript gameFinishedScript;
 
     // Start is called before the first frame update
@@ -16,6 +17,9 @@ public class PlayerHealth : MonoBehaviour
     {
         maxHealth = 6;
         currentHealth = maxHealth;
+
+        healthBar.SetMaxHealth(maxHealth);
+        HealthCounter.instance.IncreaseHealth(currentHealth);
     }
 
     // Update is called once per frame
@@ -27,10 +31,11 @@ public class PlayerHealth : MonoBehaviour
             hitTimer += Time.deltaTime; // Timer limit
         }
 
-        if (currentHealth > 0)
+        if (currentHealth >= 1)
        {
             gameFinishedScript.gameOverNow = false;
-       }
+           // Time.timeScale = 1;
+        }
        else if (currentHealth <= 0)
        {
             
@@ -54,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        HealthCounter.instance.DecreaseHealth(damage);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -70,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
             if (hitTimer >= 2.5f)
             {
                 TakeDamage(1); // Player takes damage
-                //healthBar.SetHealth(currentHealth);
+                healthBar.SetHealth(currentHealth);
                 Debug.Log("Ouch!");
                 hitTimer = 0;
             }   
@@ -91,7 +97,7 @@ public class PlayerHealth : MonoBehaviour
             if (hitTimer >= 2.5f)
             {
                 TakeDamage(1); // Player takes damage
-                //healthBar.SetHealth(currentHealth);
+                healthBar.SetHealth(currentHealth);
                 Debug.Log("Ouch!");
                 hitTimer = 0;
             }   
