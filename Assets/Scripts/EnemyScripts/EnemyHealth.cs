@@ -87,7 +87,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "HitBox")
         {
-           enemyChase.enemySpeed = 2;
+          // enemyChase.enemySpeed = 2;
         }
     }
 }
