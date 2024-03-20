@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public float hitTimer;
+    public bool regenHealth;
 
     public GameFinishedScript gameFinishedScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 10;
+        maxHealth = 6;
         currentHealth = maxHealth;
     }
 
@@ -37,6 +38,17 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Game Over");
             Time.timeScale = 0;
        }
+
+        if (maxHealth >= 12)
+        {
+            maxHealth = 12;
+        }
+
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth; // current health won't exceed max health
+        }
+
     }
 
     void TakeDamage(int damage)

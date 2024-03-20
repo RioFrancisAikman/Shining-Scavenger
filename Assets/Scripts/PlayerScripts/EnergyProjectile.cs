@@ -8,6 +8,8 @@ public class EnergyProjectile : MonoBehaviour
     public GameObject energyProjectile;
     public PlayerEnergyObjectPool playerEnergyObjectPool;
 
+    public bool enemyHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,4 +25,15 @@ public class EnergyProjectile : MonoBehaviour
             energyProjectile.SetActive(false);
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+
+            enemyHit = true;
+        }
+    }
+
+   
 }
