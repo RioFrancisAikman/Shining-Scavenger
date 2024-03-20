@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2106682377511741716}
   - component: {fileID: 8551505639361375268}
   - component: {fileID: 5053897044786244684}
-  - component: {fileID: -2024674307264842418}
+  - component: {fileID: 3194664220438168366}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Enemy
@@ -129,7 +129,7 @@ MonoBehaviour:
   playerPoints: {fileID: 0}
   pointsCounter: {fileID: 0}
   enemyChase: {fileID: 0}
---- !u!54 &-2024674307264842418
+--- !u!54 &3194664220438168366
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
