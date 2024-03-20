@@ -229,8 +229,11 @@ MonoBehaviour:
   maxEnemyHealth: 0
   isSmallEnemy: 1
   isBigEnemy: 0
-  hitTimer: 0
+  pointValue: 0
   playerAttacks: {fileID: 0}
+  playerPoints: {fileID: 0}
+  pointsCounter: {fileID: 0}
+  enemyChase: {fileID: 0}
 --- !u!114 &1488369169237776326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  enemySpeed: 0
 --- !u!54 &7970396159654934935
 Rigidbody:
   m_ObjectHideFlags: 0

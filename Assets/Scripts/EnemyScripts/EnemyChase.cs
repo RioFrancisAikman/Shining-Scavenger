@@ -6,11 +6,21 @@ public class EnemyChase : MonoBehaviour
 {
     public GameObject player;
     public float enemySpeed;
+    public bool isHeavy;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemySpeed = 2.5f;
+
+        if (isHeavy == true)
+        {
+            enemySpeed = 1f;
+        }
+
+        if (isHeavy == false)
+        {
+            enemySpeed = 2.5f;
+        }
     }
 
     // Update is called once per frame

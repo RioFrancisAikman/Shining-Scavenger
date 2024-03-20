@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PointsCounter : MonoBehaviour
+public class ScoreCounter : MonoBehaviour
 {
-    public static PointsCounter instance;
-    public TMP_Text pointsText;
+    public static ScoreCounter instance;
+    public TMP_Text scoreText;
     public PlayerPoints playerPoints;
     public int currentPoints;
 
@@ -18,25 +18,25 @@ public class PointsCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        pointsText.text = "Points: " + currentPoints.ToString();
-        
+
+        scoreText.text = "Score: " + currentPoints.ToString();
+
         currentPoints += playerPoints.upgradePoints;
     }
 
     public void IncreasePoints(int v)
     {
 
-            currentPoints += v;
-            pointsText.text = "Points: " + currentPoints.ToString();
-        
+        currentPoints += v;
+        scoreText.text = "Score: " + currentPoints.ToString();
+
     }
 
     public void DecreasePoints(int v)
     {
 
         currentPoints -= v;
-        pointsText.text = "Points: " + currentPoints.ToString();
+        scoreText.text = "Points: " + currentPoints.ToString();
 
     }
 }

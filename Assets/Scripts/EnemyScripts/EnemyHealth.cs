@@ -7,7 +7,6 @@ public class EnemyHealth : MonoBehaviour
     public float maxEnemyHealth;
     public bool isSmallEnemy;
     public bool isBigEnemy;
-    public float hitTimer;
     public int pointValue;
 
     public PlayerAttacks playerAttacks;
@@ -48,6 +47,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 playerPoints.CollectedPoint(1);
                 PointsCounter.instance.IncreasePoints(pointValue);
+                ScoreCounter.instance.IncreasePoints(pointValue);
                 Debug.Log("+1");
             }
 
@@ -55,17 +55,15 @@ public class EnemyHealth : MonoBehaviour
             {
                playerPoints.CollectedPoint(2);
                PointsCounter.instance.IncreasePoints(pointValue);
+               ScoreCounter.instance.IncreasePoints(pointValue);
                Debug.Log("+2");
             }
         }
 
-        if (hitTimer <= 1.4f)
-        {
-            hitTimer += Time.deltaTime; // Timer limit
-        }
+        
     }
 
-    void TakeDamage()
+    void EnemyTakeDamage()
     {
         maxEnemyHealth -= playerAttacks.attackPower; // Takes damage based on player attack power
     }
@@ -75,19 +73,12 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.tag == "HitBox")
         {
            enemyChase.enemySpeed = 0;
-            
-            if (hitTimer <= 1.2f)
-            {
-                //TakeDamage(0); // Invulnerable to taking damage briefly
-            }
-
-            if (hitTimer >= 1.2f)
-            {
-                TakeDamage(); // Enemy takes damage
+           
+                EnemyTakeDamage(); // Enemy takes damage
                 
                 Debug.Log("Rawr!");
-                hitTimer = 0;
-            }   
+                
+              
             
         }
     }
